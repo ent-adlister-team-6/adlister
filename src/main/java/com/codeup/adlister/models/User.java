@@ -6,7 +6,36 @@ public class User {
     private String email;
     private String password;
 
-    public User() {}
+    private String bio;
+    private String location;
+
+    public User(long id, String username, String email, String password, String bio, String location) {
+        this.id = id;
+        this.username = username;
+        this.email = email;
+        this.password = password;
+        this.bio = bio;
+        this.location = location;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
+    public String getBio() {
+        return bio;
+    }
+
+    public void setBio(String bio) {
+        this.bio = bio;
+    }
+
+    public User() {
+    }
 
     public User(String username, String email, String password) {
         this.username = username;
