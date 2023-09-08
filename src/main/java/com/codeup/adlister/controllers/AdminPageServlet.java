@@ -13,8 +13,8 @@ import java.io.PrintWriter;
 public class AdminPageServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-request.getRequestDispatcher("WEB-INF/adminpage.jsp").forward(request,response);
+        request.getRequestDispatcher("WEB-INF/adminpage.jsp").forward(request, response);
         // Set the content type and character encoding for the response
 
-    
+    }
 }
