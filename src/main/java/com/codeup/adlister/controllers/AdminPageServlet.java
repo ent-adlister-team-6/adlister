@@ -9,7 +9,11 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+<<<<<<< HEAD
 @WebServlet(name = "controllers.AdminPageServlet", urlPatterns = "/adminpage")
+=======
+@WebServlet(name = "controllers.AdminPageServlet", urlPatterns = "/admin")
+>>>>>>> main
 public class AdminPageServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
