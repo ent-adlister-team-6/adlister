@@ -10,7 +10,7 @@
 
 <div class="container">
     <h1>Edit Your Profile</h1>
-    <form action="/profile" method="POST">
+    <form action="/edit-profile" method="POST">
         <div class="form-group">
             <label for="bio">Bio</label>
             <textarea id="bio" name="bio" class="form-control">${user.bio}</textarea>
