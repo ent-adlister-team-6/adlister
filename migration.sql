@@ -8,6 +8,8 @@ CREATE TABLE users
     id       INT UNSIGNED NOT NULL AUTO_INCREMENT,
     username VARCHAR(240) NOT NULL,
     email    VARCHAR(240) NOT NULL,
+    bio TEXT,
+    location VARCHAR(255) DEFAULT NULL,
     password VARCHAR(255) NOT NULL,
     PRIMARY KEY (id)
 );
