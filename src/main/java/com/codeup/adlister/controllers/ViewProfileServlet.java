@@ -18,27 +18,31 @@ public class ViewProfileServlet extends HttpServlet {
             response.sendRedirect("/login");
             return;
         }
+        User user = (User) request.getSession().getAttribute("user");
+
+        request.setAttribute("user", user);
+
         request.getRequestDispatcher("/WEB-INF/profile.jsp").forward(request, response);
     }
 
-    @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String bio = req.getParameter("bio");
-        String location = req.getParameter("location");
-        boolean inputHasErrors = bio.isEmpty()
-                || location.isEmpty();
-
-        if (inputHasErrors) {
-            resp.sendRedirect("/register");
-            return;
-        }
-
-
-        User user = (User) req.getSession().getAttribute("user");
-        user.setBio(bio);
-        user.setLocation(location);
-
-        DaoFactory.getUsersDao().insert(user);
-        resp.sendRedirect("/profile");
-    }
+//    @Override
+//    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+//        String bio = req.getParameter("bio");
+//        String location = req.getParameter("location");
+//        boolean inputHasErrors = bio.isEmpty()
+//                || location.isEmpty();
+//
+//        if (inputHasErrors) {
+//            resp.sendRedirect("/register");
+//            return;
+//        }
+//
+//
+//        User user = (User) req.getSession().getAttribute("user");
+//        user.setBio(bio);
+//        user.setLocation(location);
+//
+//        DaoFactory.getUsersDao().insert(user);
+//        resp.sendRedirect("/profile");
+//    }
 }

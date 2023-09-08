@@ -1,7 +1,7 @@
 package com.codeup.adlister.controllers;
 
 import com.codeup.adlister.models.User;
-import com.codeup.adlister.models.UserService;
+import com.codeup.adlister.services.UserService;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -47,6 +47,11 @@ public class EditProfileServlet extends HttpServlet {
         boolean updated = userService.updateUserProfile(user.getId(), newBio, newLocation);
 
         if (updated) {
+            // update our session user to the updated user
+            request.getSession().removeAttribute("user");
+            user.setBio(newBio);
+            user.setLocation(newLocation);
+            request.getSession().setAttribute("user", user);
             // If the update is successful, redirect to the user's profile page.
             response.sendRedirect("/profile");
         } else {

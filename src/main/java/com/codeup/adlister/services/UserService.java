@@ -1,7 +1,8 @@
-package com.codeup.adlister.models;
+package com.codeup.adlister.services;
 
 import com.codeup.adlister.dao.DaoFactory;
 import com.codeup.adlister.dao.Users;
+import com.codeup.adlister.models.User;
 
 public class UserService {
     private Users userDao;
