@@ -34,16 +34,16 @@
             <div class="form-group">
                 <label>Genres</label>
                 <br>
-                <input id="genre1" name="genre1" class="form-control" type="checkbox" value="action">
                 <label for="genre1">Action</label>
-                <input id="genre2" name="genre2" class="form-control" type="checkbox" value="adventure">
+                <input id="genre1" name="genre1" type="checkbox" value="action">
                 <label for="genre2">Adventure</label>
-                <input id="genre3" name="genre3" class="form-control" type="checkbox" value="arcade">
+                <input id="genre2" name="genre2" type="checkbox" value="adventure">
                 <label for="genre3">Arcade</label>
-                <input id="genre4" name="genre4" class="form-control" type="checkbox" value="rpg">
+                <input id="genre3" name="genre3" type="checkbox" value="arcade">
                 <label for="genre4">RPG</label>
-                <input id="genre5" name="genre5" class="form-control" type="checkbox" value="fighting">
+                <input id="genre4" name="genre4" type="checkbox" value="rpg">
                 <label for="genre5">Fighting</label>
+                <input id="genre5" name="genre5" type="checkbox" value="fighting">
             </div>
             <input type="submit" class="btn btn-block btn-primary">
         </form>
