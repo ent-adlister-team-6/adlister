@@ -33,6 +33,7 @@
     <div class="profile-actions">
         <!-- Include buttons or links for user actions, such as editing the profile -->
         <a href="/edit-profile" class="btn btn-primary">Edit Profile</a>
+        <a href="/ads/create" class="btn btn-primary">Add Ad</a>
     </div>
 </div>
 </body>

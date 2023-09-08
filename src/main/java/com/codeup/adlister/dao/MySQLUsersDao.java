@@ -22,6 +22,9 @@ public class MySQLUsersDao implements Users {
         }
     }
 
+    public MySQLUsersDao(javax.servlet.jsp.jstl.core.Config config) {
+    }
+
 
     @Override
     public User findByUsername(String username) {
