@@ -13,27 +13,8 @@ import java.io.PrintWriter;
 public class AdminPageServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-
+request.getRequestDispatcher("WEB-INF/adminpage.jsp").forward(request,response);
         // Set the content type and character encoding for the response
-        response.setContentType("text/html");
-        response.setCharacterEncoding("UTF-8");
 
-        // Create a PrintWriter to write HTML content to the response
-        PrintWriter out = response.getWriter();
-
-        // HTML response content
-        out.println("<!DOCTYPE html>");
-        out.println("<html>");
-        out.println("<head>");
-        out.println("<title>My Servlet</title>");
-        out.println("</head>");
-        out.println("<body>");
-        out.println("<h1>Hello, Servlet!</h1>");
-        out.println("<p>This is a simple Servlet example.</p>");
-        out.println("</body>");
-        out.println("</html>");
-
-        // Close the PrintWriter
-        out.close();
     }
 }
