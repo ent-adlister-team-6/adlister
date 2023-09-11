@@ -23,9 +23,9 @@
             </div>
             <div class="form-group">
                 <label for="new-condition">New</label>
-                <input id="new-condition" name="condition" class="form-control" type="radio" value="new">
+                <input id="new-condition" name="condition" type="radio" value="new">
                 <label for="used-condition">Used</label>
-                <input id="used-condition" name="condition" class="form-control" type="radio" value="used">
+                <input id="used-condition" name="condition" type="radio" value="used">
             </div>
             <div class="form-group">
                 <label for="platform">Platform</label>
