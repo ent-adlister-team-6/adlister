@@ -16,8 +16,12 @@ public class AdDetailServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         long id = Integer.parseInt(req.getParameter("id"));
-        req.setAttribute("ad", DaoFactory.getAdsDao().findAdById(id));
-        req.getRequestDispatcher("/WEB-INF/ads/details.jsp").forward(req, resp);
+        if (DaoFactory.getAdsDao().findAdById(id) == null) {
+            resp.sendRedirect("/ads");
+        } else {
+            req.setAttribute("ad", DaoFactory.getAdsDao().findAdById(id));
+            req.getRequestDispatcher("/WEB-INF/ads/details.jsp").forward(req, resp);
+        }
     }
 
     @Override
