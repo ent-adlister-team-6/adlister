@@ -26,5 +26,5 @@ CREATE TABLE ads
     genre       VARCHAR(100),
     PRIMARY KEY (id),
     FOREIGN KEY (user_id) REFERENCES users (id)
-        ON DELETE CASCADE
+
 );

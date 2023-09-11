@@ -1,21 +1,19 @@
 
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-            <a class="navbar-brand" href="/ads">Adlister</a>
-        </div>
+        <a class="navbar-brand" href="/ads">Adlister</a>
+
         <!-- Search Bar -->
-        <form class="navbar-form navbar-left" role="search" action="/search" method="GET">
-            <div class="form-group">
-                <input type="text" class="form-control" placeholder="Search" name="q">
-            </div>
-            <button type="submit" class="btn btn-default">Submit</button>
+        <form class="form-inline my-2 my-lg-0" action="/search" method="GET" style="width: 100%;">
+            <input class="form-control mr-sm-2" type="text" placeholder="Search" name="q" style="width: 100%;">
+<%--            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>--%>
         </form>
         <!-- End Search Bar -->
-        <ul class="nav navbar-nav navbar-right">
-            <li><a href="/login">Login</a></li>
-            <li><a href="/logout">Logout</a></li>
+
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item"><a class="nav-link" href="/login">Login</a></li>
+            <li class="nav-item"><a class="nav-link" href="/logout">Logout</a></li>
         </ul>
-    </div><!-- /.container-fluid -->
+    </div>
 </nav>
+
