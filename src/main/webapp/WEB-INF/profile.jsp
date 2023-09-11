@@ -40,8 +40,7 @@
         <h3>${user.username}'s Ads</h3>
         <c:forEach var="ad" items="${ads}">
             <div class="col-md-6">
-                <h2><a href="/details?id=${ad.id}">${ad.title}</a></h2>
-                <p>$${ad.price}</p>
+                <h2><a href="/ads/details?id=${ad.id}">${ad.title}</a></h2>
             </div>
         </c:forEach>
     </div>
