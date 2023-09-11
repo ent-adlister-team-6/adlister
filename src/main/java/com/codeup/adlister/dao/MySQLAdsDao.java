@@ -110,4 +110,100 @@ public class MySQLAdsDao implements Ads {
             throw new RuntimeException("Error deleting Ad id: " + id);
         }
     }
+
+    @Override
+    public void editAdTitleById(long id, String value) {
+        try{
+            String updateQuery = "UPDATE ads SET title = ? WHERE id = ?;";
+            PreparedStatement stmt = connection.prepareStatement(updateQuery, Statement.RETURN_GENERATED_KEYS);
+
+            stmt.setString(1, value);
+            stmt.setLong(2, id);
+            System.out.println(stmt);
+            stmt.executeUpdate();
+        }
+        catch (SQLException e){
+            throw new RuntimeException("Error updating Ad id:" + id);
+        }
+    }
+
+    @Override
+    public void editAdDescriptionById(long id, String value) {
+        try{
+            String updateQuery = "UPDATE ads SET description = ? WHERE id = ?;";
+            PreparedStatement stmt = connection.prepareStatement(updateQuery, Statement.RETURN_GENERATED_KEYS);
+
+            stmt.setString(1, value);
+            stmt.setLong(2, id);
+            System.out.println(stmt);
+            stmt.executeUpdate();
+        }
+        catch (SQLException e){
+            throw new RuntimeException("Error updating Ad id:" + id);
+        }
+    }
+
+    @Override
+    public void editAdConditionById(long id, String value) {
+        try{
+            String updateQuery = "UPDATE ads SET `condition` = ? WHERE id = ?;";
+            PreparedStatement stmt = connection.prepareStatement(updateQuery, Statement.RETURN_GENERATED_KEYS);
+
+            stmt.setString(1, value);
+            stmt.setLong(2, id);
+            System.out.println(stmt);
+            stmt.executeUpdate();
+        }
+        catch (SQLException e){
+            throw new RuntimeException("Error updating Ad id:" + id);
+        }
+    }
+
+    @Override
+    public void editAdPlatformById(long id, String value) {
+        try{
+            String updateQuery = "UPDATE ads SET platform = ? WHERE id = ?;";
+            PreparedStatement stmt = connection.prepareStatement(updateQuery, Statement.RETURN_GENERATED_KEYS);
+
+            stmt.setString(1, value);
+            stmt.setLong(2, id);
+            System.out.println(stmt);
+            stmt.executeUpdate();
+        }
+        catch (SQLException e){
+            throw new RuntimeException("Error updating Ad id:" + id);
+        }
+    }
+
+    @Override
+    public void editAdPriceById(long id, double value) {
+        try{
+            String updateQuery = "UPDATE ads SET price = ? WHERE id = ?;";
+            PreparedStatement stmt = connection.prepareStatement(updateQuery, Statement.RETURN_GENERATED_KEYS);
+
+            stmt.setDouble(1, value);
+            stmt.setLong(2, id);
+            System.out.println(stmt);
+            stmt.executeUpdate();
+        }
+        catch (SQLException e){
+            throw new RuntimeException("Error updating Ad id:" + id);
+        }
+    }
+
+    @Override
+    public void editAdGenresById(long id, List<String> values) {
+        try{
+            String updateQuery = "UPDATE ads SET genre = ? WHERE id = ?;";
+            PreparedStatement stmt = connection.prepareStatement(updateQuery, Statement.RETURN_GENERATED_KEYS);
+
+            stmt.setString(1, values.toString());
+            stmt.setLong(2, id);
+            System.out.println(stmt);
+            stmt.executeUpdate();
+        }
+        catch (SQLException e){
+            throw new RuntimeException("Error updating Ad id:" + id);
+        }
+    }
 }

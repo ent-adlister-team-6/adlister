@@ -12,4 +12,11 @@ public interface Ads {
     Ad findAdById(long id);
 
     void deleteById(long id);
+
+    void editAdTitleById(long id, String value);
+    void editAdDescriptionById(long id, String value);
+    void editAdConditionById(long id, String value);
+    void editAdPlatformById(long id, String value);
+    void editAdPriceById(long id, double value);
+    void editAdGenresById(long id, List<String> values);
 }
