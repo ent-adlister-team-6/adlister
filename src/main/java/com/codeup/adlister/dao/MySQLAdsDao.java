@@ -206,4 +206,20 @@ public class MySQLAdsDao implements Ads {
             throw new RuntimeException("Error updating Ad id:" + id);
         }
     }
+
+    @Override
+    public List<Ad> findAdsByUserId(long userId){
+        try {
+            List<Ads> ads = new ArrayList<>();
+            String findQuery = "SELECT * FROM ads WHERE user_id = ?;";
+            PreparedStatement stmt = connection.prepareStatement(findQuery, Statement.RETURN_GENERATED_KEYS);
+            stmt.setLong(1, userId);
+            System.out.println(stmt);
+            ResultSet rs = stmt.executeQuery();
+            return createAdsFromResults(rs);
+        } catch (SQLException e) {
+            throw new RuntimeException("Error finding ad with id: " + userId);
+        }
+
+    };
 }
