@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "controllers.AdDetailServlet", urlPatterns = "/details")
+@WebServlet(name = "controllers.AdDetailServlet", urlPatterns = "/ads/details")
 public class AdDetailServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -31,7 +31,7 @@ public class AdDetailServlet extends HttpServlet {
 
         if (action.equalsIgnoreCase("add")) {
         } else if (action.equalsIgnoreCase("edit")) {
-            resp.sendRedirect("/edit?id" + adId);
+            resp.sendRedirect("/ads/edit?id=" + adId);
         } else if (action.equalsIgnoreCase("delete")) {
             DaoFactory.getAdsDao().deleteById(adId);
             resp.sendRedirect("/ads");

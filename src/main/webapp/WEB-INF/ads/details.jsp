@@ -19,7 +19,7 @@
     <c:forEach var="genre" items="${ad.genres}">
         ${genre}
     </c:forEach>
-    <form method="post" action="/details">
+    <form method="post" action="/ads/details">
 <%--        HIDE THE ID FIELD LATER--%>
         <input type="number" value="${ad.id}" name="id">
 
