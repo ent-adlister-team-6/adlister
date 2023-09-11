@@ -13,15 +13,15 @@
             <%--        HIDE THE ID FIELD LATER--%>
             <input type="number" value="${ad.id}" name="id">
             <label for="title">Title</label>
-            <input id="title" name="title" class="form-control" type="text" placeholder="${ad.title}">
+                <input id="title" name="title" class="form-control" type="text" value="${ad.title}">
         </div>
         <div class="form-group">
             <label for="description">Description</label>
-            <textarea id="description" name="description" class="form-control" type="text" placeholder="${ad.description}"></textarea>
+            <textarea id="description" name="description" class="form-control" type="text" value="${ad.description}"></textarea>
         </div>
         <div class="form-group">
             <label for="price">Price</label>
-            <input id="price" name="price" class="form-control" type="number" placeholder="${ad.price}">
+            <input id="price" name="price" class="form-control" type="number" value="${ad.price}">
         </div>
         <div class="form-group">
             <label for="new-condition">New</label>
@@ -31,7 +31,7 @@
         </div>
         <div class="form-group">
             <label for="platform">Platform</label>
-            <input id="platform" name="platform" class="form-control" type="text" placeholder="${ad.platform}">
+            <input id="platform" name="platform" class="form-control" type="text" value="${ad.platform}">
         </div>
         <div class="form-group">
             <label>Genres</label>
