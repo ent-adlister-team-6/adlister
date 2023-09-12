@@ -1,23 +1,21 @@
-
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-            <a class="navbar-brand" href="/ads">GAMELISTER</a>
+        <a class="navbar-brand" href="/">GAMELISTER</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item"><a class="nav-link" href="/ads">All Games</a></li>
+                <li class="nav-item"><a class="nav-link" href="/profile">Profile</a></li>
+                <li class="nav-item"><a class="nav-link" href="/register">Register</a></li>
+                <li class="nav-item"><a class="nav-link" href="/login">Login</a></li>
+                <li class="nav-item"><a class="nav-link" href="/logout">Logout</a></li>
+            </ul>
+            <form class="d-flex" role="search" action="/search" method="post">
+                <input class="form-control me-2" type="search" placeholder="Search" name="search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
         </div>
-        <!-- Search Bar -->
-        <form class="navbar-form navbar-left" role="search" action="/search" method="POST">
-            <div class="form-group">
-                <input type="text" class="form-control" placeholder="Search" name="search">
-            </div>
-            <button type="submit" class="btn btn-default">Submit</button>
-        </form>
-        <!-- End Search Bar -->
-
-        <ul class="navbar-nav ml-auto">
-            <li class="nav-item"><a class="nav-link" href="/login">Login</a></li>
-            <li class="nav-item"><a class="nav-link" href="/logout">Logout</a></li>
-        </ul>
     </div>
 </nav>
-
