@@ -30,6 +30,7 @@
         <Button type="submit" value="delete" name="action">Delete Item</Button>
 
     </form>
+    <p>${message}</p>
 </div>
 
 </body>

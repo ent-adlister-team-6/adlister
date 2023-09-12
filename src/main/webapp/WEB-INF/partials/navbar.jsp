@@ -6,7 +6,7 @@
             <a class="navbar-brand" href="/ads">GAMELISTER</a>
         </div>
         <!-- Search Bar -->
-        <form class="navbar-form navbar-left" role="search" action="/search" method="GET">
+        <form class="navbar-form navbar-left" role="search" action="/search" method="POST">
             <div class="form-group">
                 <input type="text" class="form-control" placeholder="Search" name="search">
             </div>
