@@ -89,10 +89,8 @@ public class MySQLAdsDao implements Ads {
             String findQuery = "SELECT * FROM ads WHERE id = ?;";
             PreparedStatement stmt = connection.prepareStatement(findQuery, Statement.RETURN_GENERATED_KEYS);
             stmt.setLong(1, id);
-            System.out.println(stmt);
             ResultSet rs = stmt.executeQuery();
             if (rs.next()) {
-                System.out.println(rs);
                 return extractAd(rs);
             } else {
                 return null;
@@ -227,7 +225,11 @@ public class MySQLAdsDao implements Ads {
             stmt.setString(1, query);
             System.out.println(stmt);
             ResultSet rs = stmt.executeQuery();
-            return createAdsFromResults(rs);
+            if (rs.next()) {
+                return createAdsFromResults(rs);
+            } else {
+                return null;
+            }
         } catch (SQLException e) {
             throw new RuntimeException("Error finding ad with search term: " + searchTerm);
         }
