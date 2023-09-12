@@ -14,6 +14,9 @@
 <%--    </div>--%>
 <%--</header>--%>
 <body>
+<jsp:include page="/WEB-INF/partials/head.jsp">
+    <jsp:param name="title" value="Gamelister ads" />
+</jsp:include>
 <jsp:include page="/WEB-INF/partials/navbar.jsp" />
 
 <div class="container">
