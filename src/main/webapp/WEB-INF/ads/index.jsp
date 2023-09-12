@@ -18,7 +18,10 @@
     <jsp:param name="title" value="Gamelister ads" />
 </jsp:include>
 <jsp:include page="/WEB-INF/partials/navbar.jsp" />
-
+<div>
+    <button id="sort-title">Sort by Title</button>
+    <button id="sort-price">Sort by Price</button>
+</div>
 <div class="container">
     <div class="ads-container">
         <c:forEach var="ad" items="${ads}">
@@ -36,6 +39,7 @@
         <input type="submit" class="corner" value="" />
     </div>
 </form>
+<script src="${pageContext.request.contextPath}JS/ad-sort.js"></script>
 </body>
 </html>
 
