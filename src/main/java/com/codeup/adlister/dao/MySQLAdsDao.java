@@ -89,31 +89,32 @@ public class MySQLAdsDao implements Ads {
             String findQuery = "SELECT * FROM ads WHERE id = ?;";
             PreparedStatement stmt = connection.prepareStatement(findQuery, Statement.RETURN_GENERATED_KEYS);
             stmt.setLong(1, id);
-            System.out.println(stmt);
             ResultSet rs = stmt.executeQuery();
-            rs.next();
-            System.out.println(rs);
-            return extractAd(rs);
+            if (rs.next()) {
+                return extractAd(rs);
+            } else {
+                return null;
+            }
         } catch (SQLException e) {
             throw new RuntimeException("Error finding ad with id: " + id);
         }
     }
-    public void deleteById(long id){
-        try{
+
+    public void deleteById(long id) {
+        try {
             String deleteQuery = "DELETE FROM ads WHERE id = ?;";
             PreparedStatement stmt = connection.prepareStatement(deleteQuery, Statement.RETURN_GENERATED_KEYS);
             stmt.setLong(1, id);
             System.out.println(stmt);
             stmt.executeUpdate();
-        }
-        catch (SQLException e){
+        } catch (SQLException e) {
             throw new RuntimeException("Error deleting Ad id: " + id);
         }
     }
 
     @Override
     public void editAdTitleById(long id, String value) {
-        try{
+        try {
             String updateQuery = "UPDATE ads SET title = ? WHERE id = ?;";
             PreparedStatement stmt = connection.prepareStatement(updateQuery, Statement.RETURN_GENERATED_KEYS);
 
@@ -121,15 +122,14 @@ public class MySQLAdsDao implements Ads {
             stmt.setLong(2, id);
             System.out.println(stmt);
             stmt.executeUpdate();
-        }
-        catch (SQLException e){
+        } catch (SQLException e) {
             throw new RuntimeException("Error updating Ad id:" + id);
         }
     }
 
     @Override
     public void editAdDescriptionById(long id, String value) {
-        try{
+        try {
             String updateQuery = "UPDATE ads SET description = ? WHERE id = ?;";
             PreparedStatement stmt = connection.prepareStatement(updateQuery, Statement.RETURN_GENERATED_KEYS);
 
@@ -137,15 +137,14 @@ public class MySQLAdsDao implements Ads {
             stmt.setLong(2, id);
             System.out.println(stmt);
             stmt.executeUpdate();
-        }
-        catch (SQLException e){
+        } catch (SQLException e) {
             throw new RuntimeException("Error updating Ad id:" + id);
         }
     }
 
     @Override
     public void editAdConditionById(long id, String value) {
-        try{
+        try {
             String updateQuery = "UPDATE ads SET `condition` = ? WHERE id = ?;";
             PreparedStatement stmt = connection.prepareStatement(updateQuery, Statement.RETURN_GENERATED_KEYS);
 
@@ -153,15 +152,14 @@ public class MySQLAdsDao implements Ads {
             stmt.setLong(2, id);
             System.out.println(stmt);
             stmt.executeUpdate();
-        }
-        catch (SQLException e){
+        } catch (SQLException e) {
             throw new RuntimeException("Error updating Ad id:" + id);
         }
     }
 
     @Override
     public void editAdPlatformById(long id, String value) {
-        try{
+        try {
             String updateQuery = "UPDATE ads SET platform = ? WHERE id = ?;";
             PreparedStatement stmt = connection.prepareStatement(updateQuery, Statement.RETURN_GENERATED_KEYS);
 
@@ -169,15 +167,14 @@ public class MySQLAdsDao implements Ads {
             stmt.setLong(2, id);
             System.out.println(stmt);
             stmt.executeUpdate();
-        }
-        catch (SQLException e){
+        } catch (SQLException e) {
             throw new RuntimeException("Error updating Ad id:" + id);
         }
     }
 
     @Override
     public void editAdPriceById(long id, double value) {
-        try{
+        try {
             String updateQuery = "UPDATE ads SET price = ? WHERE id = ?;";
             PreparedStatement stmt = connection.prepareStatement(updateQuery, Statement.RETURN_GENERATED_KEYS);
 
@@ -185,15 +182,14 @@ public class MySQLAdsDao implements Ads {
             stmt.setLong(2, id);
             System.out.println(stmt);
             stmt.executeUpdate();
-        }
-        catch (SQLException e){
+        } catch (SQLException e) {
             throw new RuntimeException("Error updating Ad id:" + id);
         }
     }
 
     @Override
     public void editAdGenresById(long id, List<String> values) {
-        try{
+        try {
             String updateQuery = "UPDATE ads SET genre = ? WHERE id = ?;";
             PreparedStatement stmt = connection.prepareStatement(updateQuery, Statement.RETURN_GENERATED_KEYS);
 
@@ -201,9 +197,41 @@ public class MySQLAdsDao implements Ads {
             stmt.setLong(2, id);
             System.out.println(stmt);
             stmt.executeUpdate();
-        }
-        catch (SQLException e){
+        } catch (SQLException e) {
             throw new RuntimeException("Error updating Ad id:" + id);
+        }
+    }
+
+    @Override
+    public List<Ad> findAdsByUserId(long userId) {
+        try {
+            String findQuery = "SELECT * FROM ads WHERE user_id = ?;";
+            PreparedStatement stmt = connection.prepareStatement(findQuery, Statement.RETURN_GENERATED_KEYS);
+            stmt.setLong(1, userId);
+            System.out.println(stmt);
+            ResultSet rs = stmt.executeQuery();
+            return createAdsFromResults(rs);
+        } catch (SQLException e) {
+            throw new RuntimeException("Error finding ad with id: " + userId);
+        }
+    }
+
+    @Override
+    public List<Ad> findAdsByTitle(String searchTerm) {
+        try {
+            String query =  searchTerm + "%";
+            String findQuery = "SELECT * FROM ads WHERE title LIKE ?;";
+            PreparedStatement stmt = connection.prepareStatement(findQuery, Statement.RETURN_GENERATED_KEYS);
+            stmt.setString(1, query);
+            System.out.println(stmt);
+            ResultSet rs = stmt.executeQuery();
+            if (rs.next()) {
+                return createAdsFromResults(rs);
+            } else {
+                return null;
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException("Error finding ad with search term: " + searchTerm);
         }
     }
 }

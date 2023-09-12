@@ -1,12 +1,16 @@
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
-        <a class="navbar-brand" href="/ads">Adlister</a>
-
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/ads">GAMELISTER</a>
+        </div>
         <!-- Search Bar -->
-        <form class="form-inline my-2 my-lg-0" action="/search" method="GET" style="width: 100%;">
-            <input class="form-control mr-sm-2" type="text" placeholder="Search" name="q" style="width: 100%;">
-<%--            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>--%>
+        <form class="navbar-form navbar-left" role="search" action="/search" method="GET">
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="Search" name="search">
+            </div>
+            <button type="submit" class="btn btn-default">Submit</button>
         </form>
         <!-- End Search Bar -->
 

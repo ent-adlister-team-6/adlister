@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
     <jsp:include page="/WEB-INF/partials/head.jsp">
@@ -34,6 +35,14 @@
         <!-- Include buttons or links for user actions, such as editing the profile -->
         <a href="/edit-profile" class="btn btn-primary">Edit Profile</a>
         <a href="/ads/create" class="btn btn-primary">Add Ad</a>
+    </div>
+    <div class="user-ads">
+        <h3>${user.username}'s Ads</h3>
+        <c:forEach var="ad" items="${ads}">
+            <div class="col-md-6">
+                <h2><a href="/ads/details?id=${ad.id}">${ad.title}</a></h2>
+            </div>
+        </c:forEach>
     </div>
 </div>
 </body>
