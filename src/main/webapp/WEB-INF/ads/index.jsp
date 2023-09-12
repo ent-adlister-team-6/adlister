@@ -20,7 +20,7 @@
     <div class="ads-container">
         <c:forEach var="ad" items="${ads}">
             <div class="ads-scroll">
-                <h2><a href="/details?id=${ad.id}" class="ad-link">${ad.title}</a></h2>
+                <h2><a href="/ads/details?id=${ad.id}" class="ad-link">${ad.title}</a></h2>
                 <p class="ad-price">$${ad.price}</p>
             </div>
         </c:forEach>

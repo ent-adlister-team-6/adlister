@@ -22,13 +22,9 @@
     <form method="post" action="/ads/details">
 <%--        HIDE THE ID FIELD LATER--%>
         <input type="number" value="${ad.id}" name="id">
-
         <Button type="submit" value="add" name="action">Add to cart</Button>
-
         <Button type="submit" value="edit" name="action">Edit Item</Button>
-
         <Button type="submit" value="delete" name="action">Delete Item</Button>
-
     </form>
     <p>${message}</p>
 </div>
