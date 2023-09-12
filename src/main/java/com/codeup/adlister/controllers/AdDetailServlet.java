@@ -35,6 +35,7 @@ public class AdDetailServlet extends HttpServlet {
         if (loggedInUser == null){
             req.setAttribute("message", "You are not logged in! Please register for an account");
             resp.sendRedirect("/ads/details?id=" + adId);
+            return;
         }
         if (ad.getUserId() == loggedInUser.getId()) {
 
