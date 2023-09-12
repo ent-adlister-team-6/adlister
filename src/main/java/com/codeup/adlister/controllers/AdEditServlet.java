@@ -17,6 +17,11 @@ import java.util.List;
 public class AdEditServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        if(req.getSession().getAttribute("user") == null) {
+            resp.sendRedirect("/ads");
+            // add a return statement to exit out of the entire method.
+            return;
+        }
         long id = Integer.parseInt(req.getParameter("id"));
         if (DaoFactory.getAdsDao().findAdById(id) == null) {
             resp.sendRedirect("/ads");

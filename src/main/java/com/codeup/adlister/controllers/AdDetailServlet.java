@@ -28,18 +28,27 @@ public class AdDetailServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         User loggedInUser = (User) req.getSession().getAttribute("user");
         long adId = Integer.parseInt(req.getParameter("id"));
+        Ad ad = DaoFactory.getAdsDao().findAdById(adId);
         //the three submit inputs on the jsp are named "action", each pass a different value (add, edit, delete)
         String action = req.getParameter("action");
-        System.out.println(action);
-
-
-        if (action.equalsIgnoreCase("add")) {
-        } else if (action.equalsIgnoreCase("edit")) {
-            resp.sendRedirect("/ads/edit?id=" + adId);
-        } else if (action.equalsIgnoreCase("delete")) {
-            DaoFactory.getAdsDao().deleteById(adId);
-            resp.sendRedirect("/ads");
+        //check if the Ad belongs to the logged in user
+        if (loggedInUser == null){
+            req.setAttribute("message", "You are not logged in! Please register for an account");
+            resp.sendRedirect("/ads/details?id=" + adId);
         }
+        if (ad.getUserId() == loggedInUser.getId()) {
 
+            if (action.equalsIgnoreCase("add")) {
+                //create checkout functionality that deletes ads in bulk on checkout or something
+            } else if (action.equalsIgnoreCase("edit")) {
+                resp.sendRedirect("/ads/edit?id=" + adId);
+            } else if (action.equalsIgnoreCase("delete")) {
+                DaoFactory.getAdsDao().deleteById(adId);
+                resp.sendRedirect("/ads");
+            }
+        } else {
+            req.setAttribute("message", "You are not the poster of this Ad!");
+            resp.sendRedirect("/ads/details?id=" + adId);
+        }
     }
 }

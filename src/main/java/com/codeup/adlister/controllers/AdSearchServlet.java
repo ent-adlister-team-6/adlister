@@ -16,8 +16,13 @@ public class AdSearchServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String searchTerm = (String) request.getAttribute("search");
-        System.out.println(searchTerm);
+        if(request.getParameter("search") !=null) {
+            String searchTerm = request.getParameter("search");
+            System.out.println(searchTerm);
+            response.sendRedirect("/ads?search=" + searchTerm);
+        } else {
+            response.sendRedirect("/ads");
+        }
 //        request.getRequestDispatcher("/WEB-INF/partials/navbar.jsp").forward(request, response);
     }
 }
