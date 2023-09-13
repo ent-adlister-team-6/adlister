@@ -15,12 +15,20 @@
 <%--</header>--%>
 <body>
 <jsp:include page="/WEB-INF/partials/head.jsp">
-    <jsp:param name="title" value="Gamelister ads" />
+    <jsp:param name="title" value="Gamelister ads"/>
 </jsp:include>
-<jsp:include page="/WEB-INF/partials/navbar.jsp" />
+<jsp:include page="/WEB-INF/partials/navbar.jsp"/>
 <div>
-    <button id="sort-title">Sort by Title</button>
-    <button id="sort-price">Sort by Price</button>
+    <form class="d-flex" role="search" action="/search" method="post">
+        <input class="form-control me-2" type="search" placeholder="Search" name="search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+    </form>
+    <form action="/search" method="post">
+        <button id="sort-title" type="submit" name="search" value="title">Sort by Title</button>
+    </form>
+    <form action="/search" method="post">
+        <button id="sort-price" type="submit" name="search" value="price">Sort by Price</button>
+    </form>
 </div>
 <div class="container">
     <div class="ads-container">
@@ -35,8 +43,8 @@
 
 <form id="search-form">
     <div class="search">
-        <input type="text" name="search" class="round" />
-        <input type="submit" class="corner" value="" />
+        <input type="text" name="search" class="round"/>
+        <input type="submit" class="corner" value=""/>
     </div>
 </form>
 <script src="${pageContext.request.contextPath}JS/ad-sort.js"></script>

@@ -203,6 +203,30 @@ public class MySQLAdsDao implements Ads {
     }
 
     @Override
+    public List<Ad> sortAdsByTitle() {
+        PreparedStatement stmt = null;
+        try {
+            stmt = connection.prepareStatement("SELECT * FROM ads ORDER BY title DESC");
+            ResultSet rs = stmt.executeQuery();
+            return createAdsFromResults(rs);
+        } catch (SQLException e) {
+            throw new RuntimeException("Error retrieving all ads ordered by title.", e);
+        }
+    }
+
+    @Override
+    public List<Ad> sortAdsByPrice() {
+        PreparedStatement stmt = null;
+        try {
+            stmt = connection.prepareStatement("SELECT * FROM ads ORDER BY price DESC");
+            ResultSet rs = stmt.executeQuery();
+            return createAdsFromResults(rs);
+        } catch (SQLException e) {
+            throw new RuntimeException("Error retrieving all ads ordered by price.", e);
+        }
+    }
+
+    @Override
     public List<Ad> findAdsByUserId(long userId) {
         try {
             String findQuery = "SELECT * FROM ads WHERE user_id = ?;";
