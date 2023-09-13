@@ -24,32 +24,24 @@
     }
 </style>
 <body>
-<!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <div class="container">
-        <a class="navbar-brand" href="/ads">Gamelister</a>
-        <!-- Search Bar -->
-        <form class="form-inline ml-auto" action="/search" method="POST">
-            <input class="form-control mr-sm-2" type="text" placeholder="Search" name="search">
-            <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
-        </form>
-        <!-- End Search Bar -->
-        <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-                <a class="nav-link" href="/login">Login</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/logout">Logout</a>
-            </li>
-        </ul>
-    </div>
-</nav>
-<!-- End Navbar -->
-
-<!-- Main content container -->
-<div class="container mt-4">
-    <div class="row">
-        <!-- Loop through your ad items -->
+<jsp:include page="/WEB-INF/partials/head.jsp">
+    <jsp:param name="title" value="Gamelister ads"/>
+</jsp:include>
+<jsp:include page="/WEB-INF/partials/navbar.jsp"/>
+<div>
+    <form class="d-flex" role="search" action="/search" method="post">
+        <input class="form-control me-2" type="search" placeholder="Search" name="search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+    </form>
+    <form action="/search" method="post">
+        <button id="sort-title" type="submit" name="search" value="title">Sort by Title</button>
+    </form>
+    <form action="/search" method="post">
+        <button id="sort-price" type="submit" name="search" value="price">Sort by Price</button>
+    </form>
+</div>
+<div class="container">
+    <div class="ads-container">
         <c:forEach var="ad" items="${ads}">
             <div class="col-md-4 mb-4">
                 <div class="card rounded">
