@@ -1,21 +1,29 @@
 /* Gradient background for the profile page */
 body {
-    background: linear-gradient(135deg, #09051e, #24262f, #25363e, #56d0ae, #ecfb77);
+    background: linear-gradient(135deg, #f4f4f4, #dddddd);
     background-attachment: fixed; /* Fixed background */
     background-size: cover; /* Cover the entire viewport */
     background-repeat: no-repeat; /* No repeating */
-    background-color: #09051e; /* Fallback color */
 }
 
 /* Header background color */
 .profile-header {
     background-color: #56d0ae; /* Header background color */
+    padding: 20px;
 }
 
 /* Button colors */
 .profile-actions a.btn {
-    background-color: #ecfb77; /* Button background color */
-    color: #09051e; /* Button text color */
+    background-color: #007bff; /* Button background color */
+    color: #ffffff; /* Button text color */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+    text-decoration: none; /* Remove underline */
+}
+
+/* Add a hover effect to the ad links */
+.profile-actions a.btn:hover {
+    background-color: #0056b3; /* New background color on hover */
+    color: #ffffff; /* New text color on hover */
 }
 
 /* Center the header content */
@@ -29,7 +37,7 @@ body {
 /* Style the "About Me" and "Profile Details" sections */
 .profile-info h2,
 .profile-details h2 {
-    color: #56d0ae; /* Header text color */
+    color: #333; /* Header text color */
     margin-top: 20px; /* Add spacing at the top */
 }
 
@@ -40,51 +48,3 @@ body {
     margin-bottom: 10px; /* Add spacing between items */
 }
 
-/* Style the "dsolis's Ads" section */
-.user-ads h3 {
-    color: #fff; /* Header text color (white) for better readability */
-    margin-top: 20px; /* Add spacing at the top */
-    background-color: #56d0ae; /* Header background color for contrast */
-    padding: 10px; /* Add some padding for better visibility */
-}
-
-.user-ads h2 a {
-    color: #56d0ae; /* Link text color (greenish) */
-    text-decoration: none; /* Remove underlines from links */
-    transition: color 0.2s; /* Add a smooth color transition on hover */
-}
-
-.user-ads h2 a:hover {
-    color: #ecfb77; /* Change link text color on hover */
-}
-
-/* Additional styling for other elements as needed */
-
-/* CSS for the starry background */
-
-.ads-container {
-    width: 100%;
-    overflow: hidden;
-    white-space: nowrap;
-    display: flex;
-    justify-content: center; /* Center horizontally */
-    align-items: center; /* Center vertically */
-    height: 100vh; /* Full viewport height */
-}
-
-.ads-scroll {
-    display: inline-block;
-    padding: 100px; /* Add 100 pixels of padding around each ad */
-    margin-right: 20px; /* Adjust the right margin for additional spacing between ads */
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); /* Add a shadow to each ad box */
-    animation: scrollLeftToRight 20s linear infinite; /* Adjust the duration and timing as needed */
-}
-
-@keyframes scrollLeftToRight {
-    0% {
-        transform: translateX(-100%); /* Start position: fully to the left */
-    }
-    100% {
-        transform: translateX(100%); /* End position: fully to the right */
-    }
-}
