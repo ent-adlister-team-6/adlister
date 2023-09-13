@@ -21,9 +21,9 @@
     </c:forEach>
     <form method="post" action="/ads/details">
         <input type="number" value="${ad.id}" name="id" style="display: none">
-        <Button type="submit" value="add" name="action">Add to cart</Button>
-        <Button type="submit" value="edit" name="action">Edit Item</Button>
-        <Button type="submit" value="delete" name="action">Delete Item</Button>
+        <Button class="btn btn-primary" type="submit" value="add" name="action">Add to cart</Button>
+        <Button class="btn btn-primary" type="submit" value="edit" name="action">Edit Item</Button>
+        <Button class="btn btn-primary" type="submit" value="delete" name="action">Delete Item</Button>
     </form>
     <p>${message}</p>
 </div>

@@ -29,13 +29,15 @@
 </jsp:include>
 <jsp:include page="/WEB-INF/partials/navbar.jsp"/>
 <div>
+<div class="sort-btns" style="display: flex; flex-direction: row; justify-content: center">
+    <form action="/search" method="post">
+        <button class="btn btn-primary" id="sort-title" type="submit" name="search" value="title">Sort by Title</button>
+    </form>
+    <form action="/search" method="post">
+        <button class="btn btn-primary" id="sort-price" type="submit" name="search" value="price">Sort by Price</button>
+    </form>
+</div>
 
-    <form action="/search" method="post">
-        <button id="sort-title" type="submit" name="search" value="title">Sort by Title</button>
-    </form>
-    <form action="/search" method="post">
-        <button id="sort-price" type="submit" name="search" value="price">Sort by Price</button>
-    </form>
     <!-- Main content container -->
     <div class="container mt-4">
         <div class="row">
