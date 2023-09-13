@@ -29,37 +29,35 @@
 </jsp:include>
 <jsp:include page="/WEB-INF/partials/navbar.jsp"/>
 <div>
-    <form class="d-flex" role="search" action="/search" method="post">
-        <input class="form-control me-2" type="search" placeholder="Search" name="search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-    </form>
+
     <form action="/search" method="post">
         <button id="sort-title" type="submit" name="search" value="title">Sort by Title</button>
     </form>
     <form action="/search" method="post">
         <button id="sort-price" type="submit" name="search" value="price">Sort by Price</button>
     </form>
-</div>
-<div class="container">
-    <div class="ads-container">
-        <c:forEach var="ad" items="${ads}">
-            <div class="col-md-4 mb-4">
-                <div class="card rounded">
-                    <div class="card-body">
-                        <h5 class="card-title">${ad.title}</h5>
-                        <p class="card-text">$${ad.price}</p>
-                        <a href="/ads/details?id=${ad.id}" class="btn btn-primary">Details</a>
+    <!-- Main content container -->
+    <div class="container mt-4">
+        <div class="row">
+            <!-- Loop through your ad items -->
+            <c:forEach var="ad" items="${ads}">
+                <div class="col-md-4 mb-4">
+                    <div class="card rounded">
+                        <div class="card-body">
+                            <h5 class="card-title">${ad.title}</h5>
+                            <p class="card-text">$${ad.price}</p>
+                            <a href="/ads/details?id=${ad.id}" class="btn btn-primary">Details</a>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </c:forEach>
-        <!-- End ad loop -->
+            </c:forEach>
+            <!-- End ad loop -->
+        </div>
     </div>
-</div>
-<!-- Include Bootstrap JS for any additional functionality you need -->
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Include Bootstrap JS for any additional functionality you need -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>     <jsp:include page="/WEB-INF/partials/banner.jsp" />
 <%--<jsp:include page="/WEB-INF/partials/banner.jsp">--%>
 </html>
