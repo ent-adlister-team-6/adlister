@@ -1,58 +1,91 @@
-/* CSS for the starry background */
+/*!* Custom CSS to style ad listings like GameStop *!*/
 
-.ads-container {
-    width: 100%;
-    overflow: hidden;
-    white-space: nowrap;
+/*!* Container styles *!*/
+/*.container {*/
+/*    display: flex;*/
+/*    flex-wrap: wrap;*/
+/*    justify-content: space-between;*/
+/*    margin: 0 -15px; !* Adjust margin as needed *!*/
+/*}*/
+
+/*!* Ad item styles *!*/
+/*.ad-item {*/
+/*    flex-basis: calc(33.33% - 30px); !* Adjust width as needed *!*/
+/*    padding: 15px;*/
+/*    margin: 0 15px 30px 15px; !* Adjust margin as needed *!*/
+/*    background-color: #fff;*/
+/*    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);*/
+/*    border-radius: 5px;*/
+/*    transition: transform 0.2s;*/
+/*    text-align: center;*/
+/*}*/
+
+/*.ad-item:hover {*/
+/*    transform: translateY(-5px);*/
+/*}*/
+
+/*.ad-title {*/
+/*    font-size: 1.2rem;*/
+/*    font-weight: bold;*/
+/*}*/
+
+/*.ad-link {*/
+/*    text-decoration: none;*/
+/*    color: #333;*/
+/*}*/
+
+/*.ad-price {*/
+/*    color: #007bff;*/
+/*    font-size: 1rem;*/
+/*    margin-top: 5px;*/
+/*}*/
+
+/* Media query for smaller screens */
+/* Reset some default styles */
+body, html {
+    margin: 0;
+    padding: 0;
+}
+
+/* Style the splash page container */
+.splash-container {
     display: flex;
-    justify-content: center; /* Center horizontally */
-    align-items: center; /* Center vertically */
-    height: 100vh; /* Full viewport height */
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* 100% viewport height */
+    background-color: #25363e; /* Background color */
+    color: #fff; /* Text color */
 }
 
-.ads-scroll {
+/* Style the splash content */
+.splash-content {
+    text-align: center;
+}
+
+/* Style the heading */
+h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+/* Style the paragraph */
+p {
+    font-size: 1.5rem;
+    margin-bottom: 30px;
+}
+
+/* Style the "Explore Now" button */
+a {
     display: inline-block;
-    padding: 100px; /* Add 100 pixels of padding around each ad */
-    margin-right: 20px; /* Adjust the right margin for additional spacing between ads */
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2); /* Add a shadow to each ad box */
-    animation: scrollLeftToRight 20s linear infinite; /* Adjust the duration and timing as needed */
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    background-color: #fff; /* Button background color */
+    color: #007bff; /* Button text color */
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
 }
 
-@keyframes scrollLeftToRight {
-    0% {
-        transform: translateX(-100%); /* Start position: fully to the left */
-    }
-    100% {
-        transform: translateX(100%); /* End position: fully to the right */
-    }
-}
-
-
-.round {
-    width: 100%;
-    border-radius: 15px;
-    border: 1px #000 solid;
-    padding: 5px 5px 5px 25px;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 5;
-}
-
-.corner {
-    position: absolute;
-    top: 3px;
-    left: 5px;
-    height: 20px;
-    width: 20px;
-    z-index: 10;
-    border-radius: 10px;
-    border: none;
-    background: #000; /* Set the bg image here. with "no-repeat" */
-}
-
-.search {
-    position: relative;
-    width: 190px;
-    height: 30px;
+a:hover {
+    background-color: #0056b3; /* Hover color */
 }
