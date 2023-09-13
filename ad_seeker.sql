@@ -1,13 +1,14 @@
 USE adlister_db;
 # Shouldn't need to run these(clears the tables if there's stuff in them)!!'
 #if Truncating, do ads first
-TRUNCATE ads;
-TRUNCATE users;
+
 # must do users first! (ads reference user_id)
 INSERT INTO users (username, email, bio, location, password)
-VALUES ('user1', 'user1.user@us.mail.com', 'I am User1', 'This database I guess', 'password'),
-       ('user2', 'user2.user@us.mail.com', 'I am User2', 'This database I guess', 'password'),
-       ('user3', 'user3.user@us.mail.com', 'I am User3', 'This database I guess', 'password');
+VALUES ('Killian', 'killian.rowley@us.mail.com', 'Nice to meet you!', 'San Antonio, TX', 'password'),
+       ('Kaitelyn', 'Kaiteyln09noelle@us.mail.com', 'Nice to meet you!', 'San Antonio, TX', 'password'),
+       ('Halen', 'wiggle.demon@us.mail.com', 'woof!', 'San Antonio, TX', 'password'),
+       ('Bowie', 'bowbow@us.mail.com', 'Nice to meet you!', 'San Antonio, TX', 'password'),
+       ('', 'Kaiteyln09noelle@us.mail.com', 'Nice to meet you!', 'San Antonio, TX', 'password');
 
 INSERT INTO ads (user_id, title, description, price, `condition`, platform, genre)
 VALUES (4, 'Sonic the Hedgehog 1', 'Sonic', 99.99, 'used', 'Sega Genesis', 'Action, platformer'),

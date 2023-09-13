@@ -30,7 +30,7 @@ public class CreateAdServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         User loggedInUser = (User) request.getSession().getAttribute("user");
         List<String> genres = new ArrayList<>();
-        for(int i = 1; i <= 5; i++){
+        for(int i = 1; i <= 10; i++){
             String genre = "genre" + i;
             if(request.getParameter(genre) != null) {
                 genres.add(request.getParameter(genre));
