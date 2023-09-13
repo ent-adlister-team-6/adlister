@@ -19,7 +19,10 @@ public class AdDetailServlet extends HttpServlet {
         if (DaoFactory.getAdsDao().findAdById(id) == null) {
             resp.sendRedirect("/ads");
         } else {
+            Ad ad = DaoFactory.getAdsDao().findAdById(id);
+            User adOwner = DaoFactory.getUsersDao().findById(ad.getUserId());
             req.setAttribute("ad", DaoFactory.getAdsDao().findAdById(id));
+            req.setAttribute("owner", adOwner.getUsername());
             req.getRequestDispatcher("/WEB-INF/ads/details.jsp").forward(req, resp);
         }
     }
