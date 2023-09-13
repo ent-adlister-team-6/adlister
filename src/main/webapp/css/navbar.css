@@ -1,0 +1,35 @@
+/* Targeting the navbar using Bootstrap's classes along with custom ones for higher specificity */
+.navbar.bg-body-tertiary {
+    background-color: #333;  /* Replace with the desired color or gradient */
+    border-bottom: 1px solid #444;  /* Adds a subtle border at the bottom */
+}
+
+.navbar.bg-body-tertiary .navbar-brand {
+    color: #fff;
+    font-weight: bold;
+    transition: color 0.3s ease;  /* Smooth color transition for hover effect */
+}
+
+.navbar.bg-body-tertiary .navbar-brand:hover {
+    color: #ddd;  /* Lighter color on hover */
+}
+
+.navbar.bg-body-tertiary .navbar-nav .nav-link {
+    color: #aaa;
+    transition: color 0.3s ease;  /* Smooth color transition for hover effect */
+}
+
+.navbar.bg-body-tertiary .navbar-nav .nav-link:hover {
+    color: #fff;  /* White color on hover */
+}
+
+.navbar.bg-body-tertiary .btn-outline-success {
+    border-color: #28a745;  /* Bootstrap's success green */
+    color: #28a745;
+    transition: background-color 0.3s ease, color 0.3s ease;  /* Smooth color transition for hover effect */
+}
+
+.navbar.bg-body-tertiary .btn-outline-success:hover {
+    background-color: #28a745;  /* Bootstrap's success green */
+    color: #fff;
+}
