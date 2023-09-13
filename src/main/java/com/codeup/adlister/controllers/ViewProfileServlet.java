@@ -14,15 +14,22 @@ import java.io.IOException;
 @WebServlet(name = "controllers.ViewProfileServlet", urlPatterns = "/profile")
 public class ViewProfileServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        if (request.getSession().getAttribute("user") == null) {
-            response.sendRedirect("/login");
-            return;
-        }
-        User user = (User) request.getSession().getAttribute("user");
-        request.setAttribute("user", user);
-        request.setAttribute("ads", DaoFactory.getAdsDao().findAdsByUserId(user.getId()));
+        if (request.getParameter("viewid") == null) {
+            if (request.getSession().getAttribute("user") == null) {
+                response.sendRedirect("/login");
+                return;
+            }
+            User user = (User) request.getSession().getAttribute("user");
+            request.setAttribute("user", user);
+            request.setAttribute("ads", DaoFactory.getAdsDao().findAdsByUserId(user.getId()));
 
-        request.getRequestDispatcher("/WEB-INF/profile.jsp").forward(request, response);
+            request.getRequestDispatcher("/WEB-INF/profile.jsp").forward(request, response);
+        } else {
+            User user = DaoFactory.getUsersDao().findById(Long.parseLong(request.getParameter("viewid")));
+            request.setAttribute("user", user);
+            request.setAttribute("ads", DaoFactory.getAdsDao().findAdsByUserId(user.getId()));
+            request.getRequestDispatcher("/WEB-INF/profile.jsp").forward(request, response);
+        }
     }
 
 //    @Override

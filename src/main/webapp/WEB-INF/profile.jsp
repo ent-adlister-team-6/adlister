@@ -5,14 +5,14 @@
 <html>
 <head>
     <jsp:include page="/WEB-INF/partials/head.jsp">
-        <jsp:param name="title" value="Profile - ${user.username}" />
+        <jsp:param name="title" value="Profile - ${user.username}"/>
     </jsp:include>
     <jsp:include page="/WEB-INF/partials/navbar.jsp"/>
 </head>
 <body>
 <div class="container">
     <div class="profile-header">
-        <h1>Welcome, ${user.username}!</h1>
+        <h1>${user.username}</h1>
         <img src="path-to-user-avatar.jpg" alt="User Avatar">
     </div>
 
@@ -31,12 +31,14 @@
     </div>
 
     <!-- Add more sections for user activity, posts, or other relevant information -->
-
+    <% if (session.getAttribute("user") == request.getAttribute("user")) { %>
     <div class="profile-actions">
         <!-- Include buttons or links for user actions, such as editing the profile -->
         <a href="/edit-profile" class="btn btn-primary">Edit Profile</a>
         <a href="/ads/create" class="btn btn-primary">Add Ad</a>
     </div>
+    <%}%>
+
     <div class="user-ads">
         <h3>${user.username}'s Ads</h3>
         <c:forEach var="ad" items="${ads}">

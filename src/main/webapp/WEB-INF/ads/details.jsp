@@ -19,7 +19,7 @@
     <c:forEach var="genre" items="${ad.genres}">
         ${genre}
     </c:forEach>
-    <p>Posted by: ${owner}</p>
+    <p>Posted by: <a href="/profile?viewid=${owner.id}">${owner.username}</a></p>
     <form method="post" action="/ads/details">
         <input type="number" value="${ad.id}" name="id" style="display: none">
         <Button class="btn btn-primary" type="submit" value="add" name="action">Add to cart</Button>
