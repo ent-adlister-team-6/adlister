@@ -13,8 +13,14 @@ import java.io.IOException;
 public class AdsIndexServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         if(request.getParameter("search") != null){
-            String searchTerm = request.getParameter("search");
-            request.setAttribute("ads", DaoFactory.getAdsDao().findAdsByTitle(searchTerm));
+            if(request.getParameter("search").equals("title")){
+                request.setAttribute("ads", DaoFactory.getAdsDao().sortAdsByTitle());
+            } else if (request.getParameter("search").equals("price")){
+                request.setAttribute("ads", DaoFactory.getAdsDao().sortAdsByPrice());
+            } else {
+                String searchTerm = request.getParameter("search");
+                request.setAttribute("ads", DaoFactory.getAdsDao().findAdsByTitle(searchTerm));
+            }
         } else {
             request.setAttribute("ads", DaoFactory.getAdsDao().all());
         }
