@@ -7,10 +7,9 @@
     <jsp:include page="/WEB-INF/partials/head.jsp">
         <jsp:param name="title" value="Profile - ${user.username}" />
     </jsp:include>
-    <link href="path-to-your-custom-css.css" rel="stylesheet">
+    <jsp:include page="/WEB-INF/partials/navbar.jsp"/>
 </head>
 <body>
-<jsp:include page="/WEB-INF/partials/navbar.jsp" />
 <div class="container">
     <div class="profile-header">
         <h1>Welcome, ${user.username}!</h1>
