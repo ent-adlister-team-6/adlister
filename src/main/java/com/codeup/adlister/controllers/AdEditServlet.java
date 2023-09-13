@@ -36,7 +36,7 @@ public class AdEditServlet extends HttpServlet {
         User loggedInUser = (User) request.getSession().getAttribute("user");
         long adId = Integer.parseInt(request.getParameter("id"));
         List<String> genres = new ArrayList<>();
-        for (int i = 1; i <= 5; i++) {
+        for (int i = 1; i <= 10; i++) {
             String genre = "genre" + i;
             if (request.getParameter(genre) != null) {
                 genres.add(request.getParameter(genre));
