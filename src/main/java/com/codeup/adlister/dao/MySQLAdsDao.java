@@ -206,7 +206,7 @@ public class MySQLAdsDao implements Ads {
     public List<Ad> sortAdsByTitle() {
         PreparedStatement stmt = null;
         try {
-            stmt = connection.prepareStatement("SELECT * FROM ads ORDER BY title DESC");
+            stmt = connection.prepareStatement("SELECT * FROM ads ORDER BY title ASC");
             ResultSet rs = stmt.executeQuery();
             return createAdsFromResults(rs);
         } catch (SQLException e) {
@@ -218,7 +218,7 @@ public class MySQLAdsDao implements Ads {
     public List<Ad> sortAdsByPrice() {
         PreparedStatement stmt = null;
         try {
-            stmt = connection.prepareStatement("SELECT * FROM ads ORDER BY price DESC");
+            stmt = connection.prepareStatement("SELECT * FROM ads ORDER BY price ASC");
             ResultSet rs = stmt.executeQuery();
             return createAdsFromResults(rs);
         } catch (SQLException e) {
