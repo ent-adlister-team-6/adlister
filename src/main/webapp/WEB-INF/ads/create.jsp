@@ -44,6 +44,17 @@
                 <input id="genre4" name="genre4" type="checkbox" value="rpg">
                 <label for="genre5">Fighting</label>
                 <input id="genre5" name="genre5" type="checkbox" value="fighting">
+                <label for="genre6">Platformer</label>
+                <input id="genre6" name="genre6" type="checkbox" value="platformer">
+                <label for="genre7">Strategy</label>
+                <input id="genre7" name="genre7" type="checkbox" value="strategy">
+                <label for="genre8">Sports</label>
+                <input id="genre8" name="genre8" type="checkbox" value="sports">
+                <label for="genre9">Puzzle</label>
+                <input id="genre9" name="genre9" type="checkbox" value="puzzle">
+                <label for="genre10">Platformer</label>
+                <input id="genre10" name="genre10" type="checkbox" value="shooter">
+<%--                Strategy, Sports, Simulation, Puzzle, Shooter--%>
             </div>
             <input type="submit" class="btn btn-block btn-primary">
         </form>
