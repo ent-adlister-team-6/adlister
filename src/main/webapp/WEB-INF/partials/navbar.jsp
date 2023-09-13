@@ -7,10 +7,17 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item"><a class="nav-link" href="/ads">All Games</a></li>
+
+                <% if(session.getAttribute("user") != null) { %>
+                <!-- Show these if user IS authenticated -->
                 <li class="nav-item"><a class="nav-link" href="/profile">Profile</a></li>
+                <li class="nav-item"><a class="nav-link" href="/logout">Logout</a></li>
+                <% } else { %>
+                <!-- Show these if user is NOT authenticated -->
                 <li class="nav-item"><a class="nav-link" href="/register">Register</a></li>
                 <li class="nav-item"><a class="nav-link" href="/login">Login</a></li>
-                <li class="nav-item"><a class="nav-link" href="/logout">Logout</a></li>
+                <% } %>
+
             </ul>
             <form class="d-flex" role="search" action="/search" method="post">
                 <input class="form-control me-2" type="search" placeholder="Search" name="search" aria-label="Search">
